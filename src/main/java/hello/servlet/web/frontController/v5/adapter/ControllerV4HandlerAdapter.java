@@ -14,11 +14,25 @@ import java.util.Map;
 
 public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
 
+    /**
+     * 어댑터가 해당 컨트롤러를 처리할 수 있는지 판단하는 메서드
+     * @param handler
+     * @return
+     */
     @Override
     public boolean supports(Object handler) {
         return (handler instanceof ControllerV4);
     }
 
+    /**
+     * 실제 컨트롤러를 호출하고, 그 결과를 ModelView 로 반환하는 메서드
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
 
